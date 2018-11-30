@@ -1,0 +1,144 @@
+<template>
+  <div class="e-watch">
+    <div class="e-watch__bus" id="watch-bus"></div>
+    <Modal  v-model="visibility" :title="busName"  @on-ok="ok"  @on-cancel="cancel" :footer-hide="true" width="300"  draggable scrollable> 
+      <div class="e-bus">
+        <div class="e-bus__body">
+          <div class="e-bus__item">深圳前往广州</div>
+          <div class="e-bus__item">深圳前往河源</div>
+          <div class="e-bus__item">深圳前往东莞</div>
+        </div>
+        <div class="e-bus__footer">
+          <Row>
+            <Col span="12">
+              <Button >按钮一</Button>
+            </Col>
+            <Col span="12">
+              <Button >按钮二</Button>
+            </Col>
+          </Row>
+        </div>
+      </div>
+    </Modal>
+  </div>
+</template>
+
+<script>
+import 'echarts/extension/bmap/bmap';
+let data = [
+  {
+    name: "A",
+    value: [114.11, 22.62],
+  },
+  {
+    name: "B",
+    value: [114.12, 22.62]
+  },
+  {
+    name: "C",
+    value: [114.13, 22.62]
+  },
+  {
+    name: "D",
+    value: [114.14, 22.62]
+  }
+];
+
+let options = {
+  title: {
+    show: false
+  },
+  tooltip: {
+    trigger: "item"
+  },
+  bmap: {
+    center: [114.13, 22.62],
+    zoom: 15,
+    roam: true,
+    mapStyle: {
+      styleJson: [
+        {
+          featureType: "poi",
+          elementType: "all",
+          stylers: {
+            visibility: "off"
+          }
+        }
+      ]
+    }
+  },
+  series: [
+    {
+      type: "scatter",
+      coordinateSystem: "bmap",
+      data: data,
+      symbol: 'path://M511.986751 896C229.673947 896 0 666.326053 0 384.013249 0 101.700445 229.673947-128 511.986751-128 794.299555-128 1024 101.687196 1024 384.013249 1024 666.326053 794.312804 896 511.986751 896L511.986751 896ZM511.986751-29.956319C283.730463-29.956319 98.043681 155.756961 98.043681 384.013249 98.043681 612.269537 283.743712 797.956319 511.986751 797.956319 740.22979 797.956319 925.956319 612.256288 925.956319 384.013249 925.956319 155.77021 740.243039-29.956319 511.986751-29.956319ZM806.303281 547.573957C800.208674 555.046476 788.430183 558.888728 775.154539 558.888728L293.296346 558.888728C266.745057 558.901977 246.407618 556.941103 223.844323 534.377808 197.293034 507.826519 197.293034 482.295415 197.293034 461.89173L197.293034 238.206397 293.958803 238.206397 293.958803 205.282269 393.022668 205.282269 393.022668 238.206397 621.782424 238.206397 621.782424 205.282269 720.846289 205.282269 720.846289 238.206397 817.194079 238.206397 817.194079 509.82714C817.048339 524.732429 813.259083 539.041507 806.303281 547.573957ZM362.496636 399.81948 294.31653 399.81948 294.31653 467.999586 362.496636 467.999586 362.496636 399.81948ZM491.185592 399.81948 423.005486 399.81948 423.005486 467.999586 491.185592 467.999586 491.185592 399.81948ZM622.1534 399.81948 553.973295 399.81948 553.973295 467.999586 622.1534 467.999586 622.1534 399.81948ZM755.307318 399.81948 687.127213 399.81948 687.127213 467.999586 755.307318 467.999586 755.307318 399.81948Z',
+      symbolSize: [20,20],
+      symbolKeepAspect:true,
+      symbolRotate: 180,
+      itemStyle: {
+        normal: {
+          color: "#000",
+        }
+      }
+    }
+  ]
+};
+export default {
+  name: "EchartWatchBus",
+  data(){
+    return {
+      visibility: false,
+      busName: ''
+    }
+  },
+  methods: {
+    getWatchBus(id) {
+      let myChart = this.$echarts.init(document.getElementById(id));
+      myChart.setOption(options);
+      myChart.on('click', (params)=> {
+        this.visibility = true;
+        this.busName = params.data.name
+      });
+    },
+    ok () {
+    },
+    cancel () {
+      }
+    },
+    mounted() {
+    this.getWatchBus("watch-bus");
+  }
+};
+</script>
+
+<style scoped>
+.e-watch__bus{
+  height:600px;
+}
+.e-watch__sp{
+  background-color:#000;
+  height: 800px;
+  line-height: 800px;
+  color:#fff;
+  font-size:32px;
+  text-align: center;
+}
+.e-watch__sp::after{
+  content:'监控视频';
+}
+.e-bus__item{
+  padding:5px 10px;
+  margin-bottom:10px;
+  font-size:14px;
+  background-color:#f5f5f5;
+  cursor:pointer;
+}
+.e-bus__item:hover{
+  color:#333;
+  background-color:#ececec;
+}
+.e-bus__footer{
+  text-align: center;
+}
+</style>

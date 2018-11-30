@@ -1,0 +1,10 @@
+body{
+  overflow-x:hidden;
+}
+.head-text{
+  padding: 0 15px;
+  height: 42px;
+  line-height: 42px;
+  border-bottom: 1px solid #f6f6f6;
+  font-size: 14px;
+}
