@@ -114,7 +114,7 @@ export default {
 
 <style scoped>
 .e-watch__bus{
-  height:600px;
+  height:330px;
 }
 .e-watch__sp{
   background-color:#000;
