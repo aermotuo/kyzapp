@@ -2,17 +2,14 @@
   <div class="e-ride">
     <div class="e-ride__item">
       <div class="e-ride__item--title">总发客数量</div>
-      <div class="e-ride__item--intro">同上期增长</div>
       <div id="flow-bar1" class="e-ride__flow-bar"></div>
     </div>
     <div class="e-ride__item">
-      <div class="e-ride__item--title">总发客数量</div>
-      <div class="e-ride__item--intro">同上期增长</div>
+      <div class="e-ride__item--title">周发客数</div>
       <div id="flow-bar2" class="e-ride__flow-bar"></div>
     </div>
     <div class="e-ride__item">
       <div class="e-ride__item--title">总发客数量</div>
-      <div class="e-ride__item--intro">同上期增长</div>
       <div id="flow-bar3" class="e-ride__flow-bar"></div>
     </div>
   </div>
@@ -22,7 +19,7 @@
 export default {
   name: 'EchartRideNumber',
   methods:{
-    getFlowBar(id, data){
+    getFlowBar(id, data, color){
       let myChart = this.$echarts.init(document.getElementById(id));
       myChart.setOption({
         grid:{
@@ -41,7 +38,7 @@ export default {
         series: [{
           type: 'bar',
           barGap: '-100%',
-          barWidth: 25,
+          barWidth: 18,
           itemStyle: {
             normal: {
               color: "#5FB878",
@@ -51,17 +48,17 @@ export default {
           label:{
             show: true,
             position: "insideRight",
-            formatter: [data]+'%'
+            formatter: data.value+'%'
           },
           z: 0,
           data: [data]
         }, {
             type: 'bar',
             barGap: '-100%',
-            barWidth: 25,
+            barWidth: 18,
             itemStyle: {
               normal: {
-                color: '#e2e2e2',
+                color: color,
                 barBorderRadius: 12
               }
             },
@@ -72,27 +69,45 @@ export default {
     },
   },
   mounted(){
-    this.getFlowBar('flow-bar1', 30);
-    this.getFlowBar('flow-bar2', 20);
-    this.getFlowBar('flow-bar3', 25);
+    
+    this.getFlowBar('flow-bar1', {
+      name: '总发客数量',
+      value: 30,
+      itemStyle: {
+        color: '#5599fe'
+      }
+    }, "#d6e7ff");
+    this.getFlowBar('flow-bar2', {
+      name: '总发客数量',
+      value: 30,
+      itemStyle: {
+        color: '#99df21'
+      }
+    }, "#ebf8d3");
+    this.getFlowBar('flow-bar3', {
+      name: '总发客数量',
+      value: 30,
+      itemStyle: {
+        color: '#f9ca1e'
+      }
+    }, "#fef4cf");
   }
 }
 </script>
 
 <style scoped>
 .e-ride__item{
-  margin-bottom:20px;
+  margin-bottom:5px;
 }
 .e-ride__item:last-child{
   margin-bottom:0;
 }
 .e-ride__item--title{
-  margin-bottom:10px;
-  font-size: 20px;
+  font-size: 14px;
   color:#666;
 }
 .e-ride__flow-bar{
-  height:30px;
+  height:20px;
 }
 </style>
 

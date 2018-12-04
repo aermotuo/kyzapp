@@ -10,7 +10,9 @@
     <echart-change-trend></echart-change-trend>
     <echart-china-map-flow></echart-china-map-flow>
     <echart-watch-video></echart-watch-video> -->
+    <p-top></p-top>
     <router-view />
+    <p-footer></p-footer>
   </div>
 </template>
 
@@ -25,6 +27,8 @@
 // import EchartChangeTrend from './components/echarts/EchartChangeTrend';
 // import EchartChinaMapFlow from './components/echarts/EchartChinaMapFlow';
 // import EchartWatchVideo from './components/echarts/EchartWatchVideo';
+import PTop from './components/PTop';
+import PFooter from './components/PFooter';
 export default {
   name: 'app',
   components:{
@@ -38,10 +42,18 @@ export default {
     // EchartChangeTrend,
     // EchartChinaMapFlow,
     // EchartWatchVideo,
+    PTop,
+    PFooter
   }
 }
 </script>
 
 <style>
 @import url('./assets/style/theme.css');
+@import url('./assets/style/iconfont.css');
+#app{
+  font-size:14px;
+  color:#333;
+  background-color:#f9f9f9;
+}
 </style>

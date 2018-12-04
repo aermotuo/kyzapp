@@ -6,8 +6,9 @@
 <script>
 let options = {
   grid: {
-    left: "4%",
-    right: "4%"
+    left: "15%",
+    right: "15%",
+    bottom:"10%",
   },
   tooltip: {
     trigger: "axis"
@@ -162,6 +163,6 @@ export default {
 </script>
 <style scoped>
 .e-trend__flow {
-  height: 400px;
+  height: 300px;
 }
 </style>
