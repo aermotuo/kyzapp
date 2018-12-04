@@ -17,6 +17,10 @@ body{
   align-items: center;
 }
 
+.flex--align--stretch{
+  align-items: stretch;
+}
+
 .flex__item{
   flex: 1;
 }

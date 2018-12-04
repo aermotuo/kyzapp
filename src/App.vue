@@ -10,9 +10,9 @@
     <echart-china-map-flow></echart-china-map-flow>
     <echart-watch-video></echart-watch-video>
     <echart-watch-bus></echart-watch-bus> -->
-    <p-top></p-top>
+    <p-top v-show="showTop"></p-top>
     <router-view />
-    <p-footer></p-footer>
+    <p-footer v-show="showFooter"></p-footer>
   </div>
 </template>
 
@@ -44,6 +44,14 @@ export default {
     // EchartWatchBus
     PTop,
     PFooter
+  },
+  computed:{
+    showTop(){
+      return this.$route.meta.topNav
+    },
+    showFooter(){
+      return this.$route.meta.footerNav
+    }
   }
 }
 </script>
@@ -54,6 +62,5 @@ export default {
 #app{
   font-size:14px;
   color:#333;
-  background-color:#f9f9f9;
 }
 </style>

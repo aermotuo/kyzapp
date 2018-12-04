@@ -49,9 +49,6 @@ let options = {
         show: false
       },
       axisLine: {
-        show: false
-      },
-      axisLine: {
         show: false,
         lineStyle: {
           color: "#999"

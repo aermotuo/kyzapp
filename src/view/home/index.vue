@@ -8,7 +8,7 @@
 <script>
 import tabs from '@/components/public/tabs';
 export default {
-  name: 'homeIndex',
+  name: 'HomeIndex',
   components:{
     tabs
   },
@@ -25,6 +25,9 @@ export default {
         }
       ]
     }
+  },
+  created(){
+    
   }
 }
 </script>

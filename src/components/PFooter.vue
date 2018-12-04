@@ -1,34 +1,56 @@
 <template>
   <div>
-    <Row type="flex" align="middle" class="c-footer">
-      <Col class="c-footer__tab">
-        <div class="iconfont icon-home c-tab__icon"></div>
-        首页
-      </Col>
-      <Col class="c-footer__tab">
-        <div class="iconfont icon-tubiao c-tab__icon"></div>
-        态势展示
-      </Col>
-      <Col class="c-footer__tab">
-        <div class="iconfont icon-loufang-shixin c-tab__icon"></div>
-        客运站
-      </Col>
-      <Col class="c-footer__tab">
-        <div class="iconfont icon-shipin c-tab__icon"></div>
-        视频查看
-      </Col>
-      <Col class="c-footer__tab">
-        <div class="iconfont icon-jingli c-tab__icon"></div>
-        警力部署
-      </Col>
-    </Row>
+    <div class="flex flex--align--center c-footer">
+      <div class="c-footer__tab" :class="active == i ? 'c-footer__tab--active' : '' "  v-for="(item, i) in tabs" :key="i" @click="toggelLink(item.link, i)">
+        <div class="iconfont c-tab__icon" :class="item.iconClass"></div>
+        {{item.name}}
+      </div>
+    </div>
     <div class="c-footer__zw"></div>
   </div>  
 </template>
 
 <script>
 export default {
-  name: 'PFooter'
+  name: 'PFooter',
+  data(){
+    return {
+      active: 0,
+      tabs:[
+        {
+          iconClass: 'icon-home',
+          name: '首页',
+          link: '/home/summaryflow'
+        },{
+          iconClass: 'icon-tubiao',
+          name: '态势展示',
+          link: '/trend/everyday'
+        },{
+          iconClass: 'icon-loufang-shixin',
+          name: '客运站',
+          link: '/bus'
+        },{
+          iconClass: 'icon-shipin',
+          name: '视频查看',
+          link: '/home/summaryflow'
+        },{
+          iconClass: 'icon-jingli',
+          name: '警力部署',
+          link: '/home/summaryflow'
+        }
+      ]
+    }
+  },
+  methods: {
+    toggelLink(link, i){
+      this.active = i ;
+      this.$router.push({
+        path: link
+      });
+    },
+  },
+  created(){
+  }
 }
 </script>
 
@@ -51,6 +73,9 @@ export default {
   color:#999;
   text-align: center;
   font-size: 12px;
+}
+.c-footer__tab--active{
+  color:#3091F2;
 }
 .c-tab__icon{
   font-size: 26px;

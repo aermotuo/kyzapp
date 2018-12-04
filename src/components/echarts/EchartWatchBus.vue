@@ -1,25 +1,6 @@
 <template>
   <div class="e-watch">
     <div class="e-watch__bus" id="watch-bus"></div>
-    <Modal  v-model="visibility" :title="busName"  @on-ok="ok"  @on-cancel="cancel" :footer-hide="true" width="300"  draggable scrollable> 
-      <div class="e-bus">
-        <div class="e-bus__body">
-          <div class="e-bus__item">深圳前往广州</div>
-          <div class="e-bus__item">深圳前往河源</div>
-          <div class="e-bus__item">深圳前往东莞</div>
-        </div>
-        <div class="e-bus__footer">
-          <Row>
-            <Col span="12">
-              <Button >按钮一</Button>
-            </Col>
-            <Col span="12">
-              <Button >按钮二</Button>
-            </Col>
-          </Row>
-        </div>
-      </div>
-    </Modal>
   </div>
 </template>
 
@@ -45,12 +26,6 @@ let data = [
 ];
 
 let options = {
-  title: {
-    show: false
-  },
-  tooltip: {
-    trigger: "item"
-  },
   bmap: {
     center: [114.13, 22.62],
     zoom: 15,
@@ -86,26 +61,15 @@ let options = {
 };
 export default {
   name: "EchartWatchBus",
-  data(){
-    return {
-      visibility: false,
-      busName: ''
-    }
-  },
   methods: {
     getWatchBus(id) {
       let myChart = this.$echarts.init(document.getElementById(id));
       myChart.setOption(options);
       myChart.on('click', (params)=> {
-        this.visibility = true;
-        this.busName = params.data.name
+        this.$emit("config", params.data);
       });
     },
-    ok () {
-    },
-    cancel () {
-      }
-    },
+  },
     mounted() {
     this.getWatchBus("watch-bus");
   }
@@ -126,19 +90,5 @@ export default {
 }
 .e-watch__sp::after{
   content:'监控视频';
-}
-.e-bus__item{
-  padding:5px 10px;
-  margin-bottom:10px;
-  font-size:14px;
-  background-color:#f5f5f5;
-  cursor:pointer;
-}
-.e-bus__item:hover{
-  color:#333;
-  background-color:#ececec;
-}
-.e-bus__footer{
-  text-align: center;
 }
 </style>

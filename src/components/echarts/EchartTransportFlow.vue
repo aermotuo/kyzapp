@@ -6,10 +6,6 @@
 
 <script>
 let option = {
-  // title: {
-  //   text: "客运站数据",
-  //   x: "center"
-  // },
   tooltip: {
     trigger: "axis",
     axisPointer: {
@@ -27,7 +23,6 @@ let option = {
     ]
   },
   grid: {
-    top: 0,
     left: "2%",
     right: "0%",
     top: "15%",

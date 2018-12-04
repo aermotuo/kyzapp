@@ -1,27 +1,88 @@
 <template>
   <div class="p-bus">
-    <Row type="flex" align="middle" class="p-bus__hd" >
-      <Col span="6" class="p-bus__title" >
+    <div class="flex flex--align--center p-bus__hd">
+      <div class="flex__col--4 p-bus__title">
         客运站查看
-      </Col>
-      <Col span="18" >
-        <Input search  enter-button placeholder="车站名称" />
-      </Col>
-    </Row>
-    <echart-watch-bus></echart-watch-bus>
-    <div class="p-bus__ft">
-      <div class="p-bus__ft-name">龙岗车站分布</div>
-      <div class="p-bus__row">
-        <Row type="flex" align="middle" class="p-bus__item">
-          <Col span="4">
-            <span class="p-bus__item--number">1</span>
-          </Col>
-          <Col span="18" class="p-bus__item--name">龙岗长途汽车站</Col>
-        </Row>
+      </div>
+      <div class="flex__col--8">
+        <Input placeholder="Enter something..." />
+      </div>
+    </div>
+    <echart-watch-bus @config="showMenu"></echart-watch-bus>
+    <div class="p-bus__bd">
+      <div class="p-bus__divide">
+        龙岗车站分布
+      </div>
+      <div class="p-bus__wrap">
+        <div class="flex flex--align--stretch p-bus__item">
+          <span class="p-bus__item--number">
+            1
+          </span>
+          <div class="flex__item p-bus__item--name">
+            龙岗长途汽车站
+          </div>
+        </div>
+        <div class="flex flex--align--stretch p-bus__item">
+          <span class="p-bus__item--number">
+            2
+          </span>
+          <div class="flex__item p-bus__item--name">
+            布吉汽车站
+          </div>
+        </div>
+        <div class="flex flex--align--stretch p-bus__item">
+          <span class="p-bus__item--number">
+            3
+          </span>
+          <div class="flex__item p-bus__item--name">
+            横岗长途汽车站
+          </div>
+        </div>
+        <div class="flex flex--align--stretch p-bus__item">
+          <span class="p-bus__item--number">
+            4
+          </span>
+          <div class="flex__item p-bus__item--name">
+            丹竹头汽车站
+          </div>
+        </div>
+        <div class="flex flex--align--stretch p-bus__item">
+          <span class="p-bus__item--number">
+            5
+          </span>
+          <div class="flex__item p-bus__item--name">
+            龙岗区汽车总站
+          </div>
         </div>
       </div>
     </div>
-  </div>  
+    <Modal  
+      v-model="visibility" :title="busName" mask-closable="false" :maskClosable="false"
+      @on-ok="ok"  @on-cancel="cancel" :footer-hide="true" width="auto" 
+      class-name="vertical-center-modal"
+    > 
+      <div class="e-bus">
+        <div class="e-bus__body">
+          <div class="e-bus__item">总发车:222辆</div>
+          <div class="e-bus__item">总人数:6593人</div>
+        </div>
+        <div class="e-bus__footer">
+          <Row>
+            <Col span="8">
+              <Button @click="busDetail">发车详情</Button>
+            </Col>
+            <Col span="8">
+              <Button >室外视频</Button>
+            </Col>
+            <Col span="8">
+              <Button >室内视频</Button>
+            </Col>
+          </Row>
+        </div>
+      </div>
+    </Modal>
+    <router-view class="bus-route-view" />
+  </div>
 </template>
 
 <script>
@@ -30,53 +91,96 @@ export default {
   name: 'BusIndex',
   components:{
     EchartWatchBus
+  },
+  data(){
+    return{
+      visibility: false,
+      busName: ''
+    }
+  },
+  methods: {
+    ok () {
+    },
+    cancel () {
+    },
+    busDetail(){
+      this.$router.push({
+        path: '/bus/buslist'
+      });
+    },
+    showMenu(data){
+      this.busName = data.name;
+      this.visibility = true;
+    }
   }
 }
 </script>
 
 <style scoped>
+.p-bus{
+  background-color:#f9f9f9;
+}
 .p-bus__hd{
-  padding:10px 10px;
-  border-bottom:1px solid #dedede;
+  height: 45px;
+  padding:0 10px;
   background-color:#fff;
 }
 .p-bus__title{
-  font-size:14px;
-  font-weight: bold;
+  font-weight: 700;
+  color: #666;
 }
-.p-bus__ft{
-  padding:15px;
+.p-bus__bd{
+  padding:20px;
 }
-.p-bus__ft-name{
+.p-bus__divide{
   font-size:18px;
-}
-.p-bus__row{
-  margin-top:20px;
+  color:#000;
 }
 .p-bus__item{
-  position: relative;
-  padding:0 30px;
-  padding-bottom:10px;
-  margin-bottom: 10px;
-}
-.p-bus__item::after{
-  content:'';
-  position: absolute;
-  right:30px;
-  bottom:0;
-  width: 75%;
-  height: 1px;
-  background-color:#dedede;
+  margin-top:15px;
 }
 .p-bus__item--number{
-  display: block;
-  width:30px;
-  height: 30px;
-  line-height: 30px;
+  width:40px;
+  height:40px;
+  line-height:40px;
   text-align: center;
-  font-size:16px;
+  font-weight: 410;
+  font-size: 20px;
   color:#fff;
-  border-radius: 50%;
   background-color:#cccccc;
+  border-radius: 50%;
+}
+.p-bus__item--name{
+  line-height:40px;
+  padding-left:25px;
+  font-size:16px;
+  color:#000;
+  border-bottom:1px solid #f2f2f2;
+}
+
+/*模态框*/
+.e-bus__item{
+  padding:5px 10px;
+  margin-bottom:10px;
+  font-size:14px;
+  background-color:#f5f5f5;
+  cursor:pointer;
+}
+.e-bus__item:hover{
+  color:#333;
+  background-color:#ececec;
+}
+.e-bus__footer{
+  text-align: center;
+}
+
+.bus-route-view{
+  position: fixed;
+  z-index: 3000;
+  top:0;
+  left:0;
+  width: 100%;
+  height:100%;
+  background-color:#fff;
 }
 </style>
