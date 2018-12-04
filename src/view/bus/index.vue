@@ -27,7 +27,7 @@
 <script>
 import EchartWatchBus from '@/components/echarts/EchartWatchBus';
 export default {
-  name: 'PageBusIndex',
+  name: 'BusIndex',
   components:{
     EchartWatchBus
   }

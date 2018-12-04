@@ -6,25 +6,49 @@
 
 <script>
 let option = {
-  title: {
-    text: "客运站数据",
-    x: "center"
-  },
+  // title: {
+  //   text: "客运站数据",
+  //   x: "center"
+  // },
   tooltip: {
     trigger: "axis",
     axisPointer: {
       type: "shadow"
     }
   },
+  legend: {
+    data:[
+      {
+        name: "16日"
+      },
+      {
+        name: "17日"
+      }
+    ]
+  },
   grid: {
-    left: "3%",
-    right: "4%",
-    bottom: "3%"
+    top: 0,
+    left: "2%",
+    right: "0%",
+    top: "15%",
+    bottom: "5%"
   },
   xAxis: {
     type: "value",
-    axisLabel: {
+    axisLine: {
       show: false
+    },
+    axisTick: {
+      show: false
+    },
+    axisLabel: {
+      show: true
+    },
+    splitLine: {
+      lineStyle:{
+        color: "#535353",
+        type: "dashed"
+      }
     }
   },
   yAxis: {
@@ -38,12 +62,18 @@ let option = {
     {
       name: "16日",
       type: "bar",
-      data: [18203, 23489, 29034, 104970, 131744]
+      data: [18203, 23489, 29034, 104970, 131744],
+      itemStyle:{
+        color: "#3aa1ff"
+      }
     },
     {
       name: "17日",
       type: "bar",
-      data: [19325, 23438, 31000, 121594, 134141]
+      data: [19325, 23438, 31000, 121594, 134141],
+      itemStyle:{
+        color: "#4ecb73"
+      }
     }
   ]
 };

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <!-- <people-number></people-number>
-    <echart-trend></echart-trend>
+    <!-- <echart-trend></echart-trend>
     <echart-ride-number></echart-ride-number>
     <echart-everyday-flow></echart-everyday-flow>
     <echart-hour-flow></echart-hour-flow>
@@ -9,7 +8,8 @@
     <echart-police-forces></echart-police-forces>
     <echart-change-trend></echart-change-trend>
     <echart-china-map-flow></echart-china-map-flow>
-    <echart-watch-video></echart-watch-video> -->
+    <echart-watch-video></echart-watch-video>
+    <echart-watch-bus></echart-watch-bus> -->
     <p-top></p-top>
     <router-view />
     <p-footer></p-footer>
@@ -17,7 +17,6 @@
 </template>
 
 <script>
-// import PeopleNumber from './components/kltj/PeopleNumber';
 // import EchartRideNumber from './components/echarts/EchartRideNumber';
 // import EchartTrend from './components/echarts/EchartTrend';
 // import EchartEverydayFlow from './components/echarts/EchartEverydayFlow';
@@ -27,12 +26,12 @@
 // import EchartChangeTrend from './components/echarts/EchartChangeTrend';
 // import EchartChinaMapFlow from './components/echarts/EchartChinaMapFlow';
 // import EchartWatchVideo from './components/echarts/EchartWatchVideo';
+// import EchartWatchBus from '@/components/echarts/EchartWatchBus';
 import PTop from './components/PTop';
 import PFooter from './components/PFooter';
 export default {
   name: 'app',
   components:{
-    // PeopleNumber,
     // EchartRideNumber,
     // EchartTrend,
     // EchartEverydayFlow,
@@ -42,6 +41,7 @@ export default {
     // EchartChangeTrend,
     // EchartChinaMapFlow,
     // EchartWatchVideo,
+    // EchartWatchBus
     PTop,
     PFooter
   }

@@ -21,6 +21,25 @@ export default new Router({
       }
     ]
   },{
+    path: '/trend',
+    name: 'trend',
+    component: ()=> import('@/view/trend/index'),
+    children:[
+      {
+        name: 'everyday',
+        path: 'everyday',
+        component: ()=> import('@/view/trend/everyday')
+      },{
+        name: 'hourflow',
+        path: 'hourflow',
+        component: ()=> import('@/view/trend/hourflow')
+      },{
+        name: 'transport',
+        path: 'transport',
+        component: ()=> import('@/view/trend/transport')
+      },
+    ]
+  },{
     path: '/bus',
     name: 'bus',
     component:()=> import('@/view/bus/index'),

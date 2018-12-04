@@ -6,13 +6,38 @@
 
 <script>
 let options = {
-  title: {
-    text: "某站点用户访问来源",
-    x: "center"
-  },
+  // title: {
+  //   text: "某站点用户访问来源",
+  //   x: "center"
+  // },
   tooltip: {
     trigger: "item",
     formatter: "{a} <br/>{b} : {c} ({d}%)"
+  },
+  legend: {
+    data:[
+      {
+        name: "总站"
+      },
+      {
+        name: "同乐"
+      },
+      {
+        name: "爱联"
+      },
+      {
+        name: "长途"
+      },
+      {
+        name: "其他"
+      }
+    ]
+  },
+  grid:{
+    top: 0,
+    right:0,
+    bottom:0,
+    left:0
   },
   series: [
     {
@@ -21,11 +46,36 @@ let options = {
       radius: "55%",
       center: ["50%", "60%"],
       data: [
-        { value: 113500, name: "总站" },
-        { value: 31000, name: "同乐" },
-        { value: 23400, name: "爱联" },
-        { value: 63500, name: "长途" },
-        { value: 34800, name: "其他" }
+        { value: 113500,
+          name: "总站", 
+          itemStyle: {
+            color: "#f2637b"
+          } 
+        },
+        { value: 31000, 
+        name: "同乐", 
+          itemStyle: {
+            color: "#4ecb73"
+          }  
+        },
+        { value: 23400, 
+          name: "爱联", 
+          itemStyle: {
+            color: "#36cbcb"
+          }  
+        },
+        { value: 63500, 
+          name: "长途", 
+          itemStyle: {
+            color: "#fbd437"
+          }  
+        },
+        { value: 34800, 
+          name: "其他", 
+          itemStyle: {
+            color: "#3aa1ff"
+          }  
+        }
       ],
       itemStyle: {
         emphasis: {
