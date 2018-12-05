@@ -61,3 +61,16 @@ body{
 .flex__col--12{
   flex: 0 0 100%;
 }
+
+.head-row{
+  height:45px;
+  line-height:45px;
+  padding:0 10px;
+  border-bottom: 1px solid #f2f2f2;
+  background-color:#fff;
+}
+.head-row__title{
+  font-weight: 700;
+  font-size:15px;
+  color:#666;
+}

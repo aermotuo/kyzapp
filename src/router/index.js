@@ -9,102 +9,88 @@ export default new Router({
       path: '/',
       name: 'index',
       component: ()=> import('@/view/home/SummaryFlow'),
-      meta: {
-        topNav: true,
-        footerNav: true
-      }
     },
     {
     path: '/home',
     name: 'home',
     component: () => import('@/view/home/index'),
-    meta: {
-      topNav: true,
-      footerNav: true
-    },
     children:[
       {
         name: 'summaryflow',
         path: 'summaryflow',
         component: ()=> import('@/view/home/SummaryFlow'),
-        meta: {
-          topNav: true,
-          footerNav: true
-        }
       },
       {
         name: 'distributionflow',
         path: 'distributionflow',
         component: ()=> import('@/view/home/DistributionFlow'),
-        meta: {
-          topNav: true,
-          footerNav: true
-        }
       }
     ]
   },{
     path: '/trend',
     name: 'trend',
     component: ()=> import('@/view/trend/index'),
-    meta: {
-      topNav: true,
-      footerNav: true
-    },
     children:[
       {
         name: 'everyday',
         path: 'everyday',
         component: ()=> import('@/view/trend/everyday'),
-        meta: {
-          topNav: true,
-          footerNav: true
-        }
       },{
         name: 'hourflow',
         path: 'hourflow',
         component: ()=> import('@/view/trend/hourflow'),
-        meta: {
-          topNav: true,
-          footerNav: true
-        }
       },{
         name: 'transport',
         path: 'transport',
         component: ()=> import('@/view/trend/transport'),
-        meta: {
-          topNav: true,
-          footerNav: true
-        }
       },
     ]
   },{
     path: '/bus',
     name: 'bus',
     component:()=> import('@/view/bus/index'),
-    meta: {
-      topNav: true,
-      footerNav: true
-    },
     children:[
       {
-        path: 'buslist',
+        path: 'list',
         name: 'buslist',
         component: ()=> import('@/view/bus/busList'),
-        meta: {
-          topNav: true,
-          footerNav: true
-        },
         children:[
           {
-            path: 'busdetail',
+            path: 'detail',
             name: 'busdetail',
             component: ()=> import('@/view/bus/busDetail'),
-            meta: {
-              topNav: true,
-              footerNav: true
-            },
-          }
+          } 
         ]
+      },
+      {
+        path: 'indoor',
+        name: 'busindoor',
+        component:()=> import('@/view/bus/busIndoor'),
+      },
+      {
+        path: 'outdoor',
+        name: 'busoutdoor',
+        component:()=> import('@/view/bus/busOutdoor')
+      }
+    ]
+  },{
+    path: '/watch',
+    name: 'watch',
+    component: ()=>import('@/view/watch/index'),
+  },{
+    path: '/police',
+    name: 'police',
+    component:()=>import('@/view/police/index'),
+    children: [
+      {
+        path: 'deploy',
+        name: 'policeDeploy',
+        component: ()=> import('@/view/police/deploy'),
+      },
+      {
+        path: 'proportion',
+        name: 'policeProportion',
+        component: ()=> import('@/view/police/proportion'),
       }
     ]
   }]

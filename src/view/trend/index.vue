@@ -3,8 +3,10 @@
     <tabs :tabs="tabs"></tabs>
     <router-view />
     <div class="t-map">
-      <div class="t-map__title">
-        数据动态展示
+      <div class="head-row">
+        <div class="head-row__title">
+          发客数量
+        </div>
       </div>
       <echart-china-map-flow class="echart-china-map-flow"></echart-china-map-flow>
     </div>
@@ -46,14 +48,6 @@ export default {
   border-top:1px solid #f2f2f2;
   border-bottom:1px solid #f2f2f2;  
   background-color: #fff;
-}
-.t-map__title{
-  padding:0 10px;
-  height: 45px;
-  line-height: 45px;
-  font-weight: 700;
-  color: #666;
-  border-bottom:1px solid #f2f2f2;
 }
 .echart-china-map-flow{
   padding:10px;

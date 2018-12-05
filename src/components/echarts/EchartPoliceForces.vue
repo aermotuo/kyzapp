@@ -9,18 +9,22 @@ let options = {
   title: {
     text: "警力投向与投量",
     textStyle: {
-      color: "#999",
-      fontWeight: "normal"
+      color: "#666",
+      fontWeight: "100",
+      fontSize: "16"
     }
   },
   tooltip: {
     trigger: "axis",
     axisPointer: {
-      type: "line"
+      type: "shadow"
     }
   },
-  legend: {
-    data: ["去年", "今年"]
+  grid:{
+    top:"15%",
+    bottom:"10%",
+    left:"15%",
+    right:"15%",
   },
   xAxis: [
     {
@@ -28,15 +32,18 @@ let options = {
       data: ["丹竹头", "城地", "机荷", "同乐"],
       axisLine: {
         lineStyle: {
-          color: "#009688",
-          width: 2
+          color: "#999",
+          width: 1
         }
       },
       splitLine: {
-        show: true,
+        show: false,
         lineStyle: {
           color: "#eeeeee"
         }
+      },
+      axisTick: {
+        show: false
       },
       axisPointer:{
         show: true,
@@ -55,16 +62,13 @@ let options = {
         formatter: "{value}"
       },
       axisLine: {
+        show: false,
         lineStyle: {
-          color: "#009688",
-          width: 2
+          color: "#999",
         }
       },
-      splitArea: {
-        show: true,
-        areaStyle: {
-          color: ["#f9f9f9", "#fdfdfd"]
-        }
+      axisTick: {
+        show: false
       },
       splitLine: {
         show: true,
@@ -76,32 +80,35 @@ let options = {
   ],
   series: [
     {
-      name: "去年",
-      type: "bar",
-      itemStyle: {
-        normal: { color: "#009688" }
-      },
-      markPoint: {
-        data: [{ type: "max", name: "最大值" }, { type: "min", name: "最小值" }]
-      },
-      markLine: {
-        data: [{ type: "average", name: "平均值" }]
-      },
-      data: [1043, 1456, 1900, 1200]
-    },
-    {
       name: "今年",
       type: "bar",
       itemStyle: {
         normal: { color: "#1e9fff" }
       },
-      markPoint: {
-        data: [{ type: "max", name: "最大值" }, { type: "min", name: "最小值" }]
-      },
       markLine: {
         data: [{ type: "average", name: "平均值" }]
       },
-      data: [787, 571, 999, 341]
+      data: [{
+        value: 787,
+        itemStyle: {
+          color:"#61a5e8"
+        }
+      },{
+        value: 571,
+        itemStyle: {
+          color:"#7ecf51"
+        }
+      },{
+        value: 999,
+        itemStyle: {
+          color:"#eecb5f"
+        }
+      },{
+        value: 341,
+        itemStyle: {
+          color:"#9570e5"
+        }
+      }]
     }
   ]
 };

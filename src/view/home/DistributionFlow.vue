@@ -1,7 +1,9 @@
 <template>
   <div class="p-flow">
-    <div class="p-flow__title">
-      客流分布
+    <div class="head-row">
+      <div class="head-row__title">
+        客流分布
+      </div>
     </div>
     <div class="p-flow__content">
       <table class="p-flow__table" border="0" cellpadding="0" cellspacing="0">
@@ -34,12 +36,13 @@ export default {
   },
   data(){
     return {
-      list:[{sort: 1, locationName: '浙江', peopleNumber: 62310},
-            {sort: 2, locationName: '上海', peopleNumber: 59190},
-            {sort: 3, locationName: '广东', peopleNumber: 55891},
-            {sort: 4, locationName: '北京', peopleNumber: 51919},
-            {sort: 5, locationName: '山东', peopleNumber: 39231},
-            {sort: 6, locationName: '湖北', peopleNumber: 37109}]
+      list:[
+        {sort: 1, locationName: '浙江', peopleNumber: 62310},
+        {sort: 2, locationName: '上海', peopleNumber: 59190},
+        {sort: 3, locationName: '广东', peopleNumber: 55891},
+        {sort: 4, locationName: '北京', peopleNumber: 51919},
+        {sort: 5, locationName: '山东', peopleNumber: 39231},
+        {sort: 6, locationName: '湖北', peopleNumber: 37109}]
     }
   }
 }
@@ -51,14 +54,6 @@ export default {
   border-top:1px solid #f2f2f2;
   border-bottom:1px solid #f2f2f2;
   background-color:#fff;
-}
-.p-flow__title{
-  padding:0 10px;
-  height: 45px;
-  line-height: 45px;
-  font-weight: 700;
-  color: #666;
-  border-bottom:1px solid #f2f2f2;
 }
 .p-flow__content{
   padding:10px;

@@ -38,7 +38,7 @@ export default {
   methods: {
     jumpDetail(){
       this.$router.push({
-        path: '/bus/buslist/busdetail'
+        path: '/bus/list/detail'
       })
     }
   }

@@ -7,20 +7,28 @@
 <script>
 let options = {
   title: {
-    text: "投放变化趋势"
+    text: "警力投向与投量",
+    textStyle: {
+      color: "#666",
+      fontWeight: "100",
+      fontSize: "16"
+    }
   },
   tooltip: {
     trigger: "axis"
   },
-  legend: {
-    data: ["去年", "今年"]
+  grid:{
+    top:"15%",
+    bottom:"15%",
+    left:"10%",
+    right:"10%",
   },
   xAxis: {
     type: "category",
     boundaryGap: false,
     data: ["丹竹头", "城地", "机荷", "同乐"],
     axisLabel: {
-      color: "#333"
+      color: "#999"
     },
     axisLine: {
       lineStyle: {
@@ -30,12 +38,6 @@ let options = {
     },
     axisTick: {
       show: false
-    },
-    splitLine: {
-      show: true,
-      lineStyle: {
-        color: "#eee"
-      }
     },
     axisPointer:{
       show: true,
@@ -50,7 +52,7 @@ let options = {
     type: "value",
     axisLabel: {
       formatter: "{value}",
-      color: "#333"
+      color: "#999"
     },
     axisLine: {
       lineStyle: {
@@ -61,45 +63,14 @@ let options = {
     axisTick: {
       show: false
     },
-    splitArea: {
-      show: true,
-      areaStyle: {
-        color: ["#f9f9f9", "#fdfdfd"]
-      }
-    },
     splitLine: {
       lineStyle: {
-        color: "#eee"
+        color: "#eee",
+        type: "dashed"
       }
     }
   },
   series: [
-    {
-      name: "去年",
-      type: "line",
-      data: [110, 220, 300, 310],
-      lineStyle: {
-        color: "#009688"
-      },
-      markPoint: {
-        data: [
-          { type: "max", name: "最大值" },
-          { type: "min", name: "最小值" }
-        ],
-        itemStyle: {
-          color: "#009688"
-        }
-      },
-      markLine: {
-        data: [{ type: "average", name: "平均值" }],
-        lineStyle: {
-          color: "#009688"
-        }
-      },
-      itemStyle: {
-        color: "#009688"
-      }
-    },
     {
       name: "今年",
       type: "line",
@@ -107,24 +78,12 @@ let options = {
       lineStyle: {
         color: "#1e9fff"
       },
-      markPoint: {
-        data: [
-          { type: "min", name: "最小值" },
-          { type: "max", name: "最大值" }
-        ],
-        itemStyle: {
-          color: "#1e9fff"
-        }
-      },
-      markLine: {
-        data: [{ type: "average", name: "平均值" }],
-        lineStyle: {
-          color: "#1e9fff"
-        }
-      },
       itemStyle: {
         color: "#1e9fff"
-      }
+      },
+      markLine: {
+        data: [{ type: "average", name: "平均值" }]
+      },
     }
   ]
 };

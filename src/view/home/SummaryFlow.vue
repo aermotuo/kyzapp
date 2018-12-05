@@ -37,8 +37,8 @@
       </div>
     </div>
     <div class="s-setout">
-      <div class="flex flex--align--center s-setout__hd">
-        <div class="flex__col--4 s-setout__title">
+      <div class="flex flex--align--center head-row">
+        <div class="flex__col--4 head-row__title">
           发客数量
         </div>
         <div class="flex__col--8">
@@ -110,14 +110,6 @@ export default {
   border-top:1px solid #f2f2f2;
   border-bottom:1px solid #f2f2f2;
   background-color:#fff;
-}
-.s-setout__hd{
-  padding:5px;
-  border-bottom:1px solid #f2f2f2;
-}
-.s-setout__title{
-  font-weight: 700;
-  color:#666;
 }
 .echart-ride-number{
   padding:10px;

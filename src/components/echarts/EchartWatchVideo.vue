@@ -1,11 +1,6 @@
 <template>
   <div class="e-watch">
     <div class="e-watch__video" id="watch-video"></div>
-    <Modal  v-model="visibility" :title="videoName"  @on-ok="ok" fullscreen   @on-cancel="cancel" :footer-hide="true"> 
-        <div class="e-watch__sp">
-          <video src="../../assets/video.mp4" controls></video>
-        </div>
-    </Modal>
   </div>
 </template>
 
@@ -13,32 +8,34 @@
 import 'echarts/extension/bmap/bmap';
 let data = [
   {
-    name: "A",
+    name: "坂田地铁站",
     value: [114.11, 22.62],
   },
   {
-    name: "B",
+    name: "龙园",
     value: [114.12, 22.62]
   },
   {
-    name: "C",
+    name: "第三人民医院",
     value: [114.13, 22.62]
   },
   {
-    name: "D",
-    value: [114.14, 22.62]
+    name: "玉平特学校",
+    value: [114.13, 22.61]
+  },
+  {
+    name: "深圳外国语学校",
+    value: [114.12, 22.61]
+  },
+  {
+    name: "南坪快速",
+    value: [114.11, 22.61]
   }
 ];
 
 let options = {
-  title: {
-    show: false
-  },
-  tooltip: {
-    trigger: "item"
-  },
   bmap: {
-    center: [114.13, 22.62],
+    center: [114.13, 22.615],
     zoom: 15,
     roam: true,
     mapStyle: {
@@ -72,25 +69,14 @@ let options = {
 };
 export default {
   name: "EchartWatchVideo",
-  data(){
-    return {
-      visibility: false,
-      videoName: ''
-    }
-  },
   methods: {
     getWatchVideo(id) {
       let myChart = this.$echarts.init(document.getElementById(id));
       myChart.setOption(options);
       myChart.on('click', (params)=> {
-        this.visibility = true;
-        this.videoName = params.data.name
+        this.$emit("config", params.data);
       });
     },
-    ok () {
-    },
-    cancel () {
-    }
   },
   mounted() {
     this.getWatchVideo("watch-video");
@@ -100,18 +86,6 @@ export default {
 
 <style scoped>
 .e-watch__video{
-  height:600px;
-}
-.e-watch__sp{
-  color:#fff;
-  text-align: center;
-}
-.e-watch__sp{
-  width: 100%;
-  height: 100%;
-}
-.e-watch__sp video{
-  width: 100%;
-  height: 100%;
+  height:330px;
 }
 </style>

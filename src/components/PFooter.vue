@@ -32,11 +32,11 @@ export default {
         },{
           iconClass: 'icon-shipin',
           name: '视频查看',
-          link: '/home/summaryflow'
+          link: '/watch'
         },{
           iconClass: 'icon-jingli',
           name: '警力部署',
-          link: '/home/summaryflow'
+          link: '/police/deploy'
         }
       ]
     }
