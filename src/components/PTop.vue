@@ -11,13 +11,11 @@
       </Col>
       <Col span="8"  class="c-head__pagename" v-text="pagename"></Col>
       <Col span="8"  class="c-head__btnbox">
-        <span class="iconfont icon-lingdang c-head__icon"></span>
-        <span class="iconfont icon-user c-head__icon"></span>
+        <span class="iconfont icon-lingdang c-head__icon" @click="jump('/warning')"></span>
+        <span class="iconfont icon-user c-head__icon" @click="jump('/user')"></span>
       </Col>
     </Row>
-    <div class="c-head__zw">
-
-    </div>
+    <div class="c-head__zw"></div>
   </div>
   
 </template>
@@ -29,6 +27,13 @@ export default {
     pagename: {
       type: String,
       default: '首页'
+    }
+  },
+  methods:{
+    jump(link){
+      this.$router.push({
+        path: link
+      })
     }
   }
 }

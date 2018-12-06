@@ -5,7 +5,7 @@
         视频查看
       </div>
     </div>
-    <echart-watch-video @config="showVideo"></echart-watch-video>
+    <watch-video @config="showVideo"></watch-video>
     <data-list title="视频列表" :list="list"></data-list>
     <Modal  
       v-model="visibility" :title="watchName" mask-closable="false" :maskClosable="false"
@@ -16,14 +16,14 @@
 </template>
 
 <script>
-import EchartWatchVideo from '@/components/echarts/EchartWatchVideo';
 import DataList from '@/components/public/DataList';
+import WatchVideo from '@/components/echarts/WatchVideo';
 export default {
   name: 'WatchIndex',
   data(){
     return {
       visibility: false,
-      watchName: '',
+      watchName: '查看视频',
       list:[
         {
           name: '坂田地铁站'
@@ -42,13 +42,13 @@ export default {
     }
   },
   components:{
-    EchartWatchVideo,
-    DataList
+    DataList,
+    WatchVideo
   },
   methods:{
-    showVideo(data){
+    showVideo(){
       this.visibility = true;
-      this.watchName = data.name;
+      // this.watchName = data.name;
     }
   }
 }

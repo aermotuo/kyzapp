@@ -35,6 +35,7 @@
           地图展示
         </div>
       </div>
+      <PoliceMap></PoliceMap>
     </div>
     <data-list class="p-police__postList" title="岗位列表" :list="list"></data-list>
   </div>
@@ -43,11 +44,13 @@
 <script>
 import tabs from '@/components/public/tabs';
 import DataList from '@/components/public/DataList';
+import PoliceMap from '@/components/echarts/PoliceMap';
 export default {
   name: 'PoliceIndex',
   components: {
     tabs,
-    DataList
+    DataList,
+    PoliceMap
   },
   data(){
     return {

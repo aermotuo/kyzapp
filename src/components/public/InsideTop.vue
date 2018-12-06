@@ -6,7 +6,9 @@
         返回
       </div>
       <div class="flex__col--6 i-top__title" v-text="title"></div>
-      <div class="flex__item "></div>
+      <div class="flex__item i-top__right">
+        <slot></slot>
+      </div>
     </div>
     <div class="i-top__zw"></div>
   </div>
@@ -52,6 +54,9 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.i-top__right{
+  text-align: right;
 }
 .i-top__zw{
   height:50px;

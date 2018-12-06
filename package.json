@@ -12,6 +12,7 @@
     "echarts": "^4.2.0-rc.2",
     "iview": "^3.1.5",
     "vue": "^2.5.17",
+    "vue-amap": "^0.5.8",
     "vue-router": "^3.0.2",
     "vuex": "^3.0.1"
   },
@@ -35,7 +36,12 @@
     ],
     "rules": {
       "no-console": 0,
-      "vue/no-parsing-error": [2, {"x-invalid-end-tag": false}],
+      "vue/no-parsing-error": [
+        2,
+        {
+          "x-invalid-end-tag": false
+        }
+      ],
       "vue/html-self-closing": "off"
     },
     "parserOptions": {

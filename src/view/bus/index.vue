@@ -8,10 +8,10 @@
         <Input placeholder="Enter something..." />
       </div>
     </div>
-    <echart-watch-bus @config="showMenu"></echart-watch-bus>
+    <watch-bus @config="showMenu"></watch-bus>
     <data-list title="龙岗车站分布" :list="list"></data-list>
     <Modal  
-      v-model="visibility" :title="busName" mask-closable="false" :maskClosable="false"
+      v-model="visibility" title="龙岗车站分布" mask-closable="false" :maskClosable="false"
       :footer-hide="true" width="auto"  class-name="vertical-center-modal"> 
       <div class="e-bus">
         <div class="e-bus__body">
@@ -39,13 +39,13 @@
 </template>
 
 <script>
-import EchartWatchBus from '@/components/echarts/EchartWatchBus';
 import DataList from '@/components/public/DataList';
+import WatchBus from '@/components/echarts/WatchBus';
 export default {
   name: 'BusIndex',
-  components:{
-    EchartWatchBus,
-    DataList
+  components:{    
+    DataList,
+    WatchBus
   },
   data(){
     return{
@@ -72,8 +72,8 @@ export default {
         path: link
       });
     },
-    showMenu(data){
-      this.busName = data.name;
+    showMenu(){
+      // this.busName = data.name;
       this.visibility = true;
     }
   }

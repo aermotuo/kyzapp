@@ -93,5 +93,33 @@ export default new Router({
         component: ()=> import('@/view/police/proportion'),
       }
     ]
+  },{
+    path: '/warning',
+    name: 'warning',
+    component:()=>import('@/view/warning/index'),
+    meta:{
+      topHide: true
+    }
+  },{
+    path: '/warning/add',
+    name: 'warningAdd',
+    component:()=>import('@/view/warning/add'),
+    meta:{
+      topHide: true
+    }
+  },{
+    path: '/user',
+    name: 'user',
+    component: ()=>import('@/view/user/index'),
+    meta:{
+      topHide: true
+    }
+  },{
+    path: '/user/upadepass',
+    name: 'userPassword',
+    component: ()=>import('@/view/user/password'),
+    meta:{
+      topHide: true
+    }
   }]
 })
