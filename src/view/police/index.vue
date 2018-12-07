@@ -76,6 +76,12 @@ export default {
         }
       ]
     }
+  },
+  created(){
+    this.$store.commit('updatePage',{
+      name: '警力部署',
+      index:4
+    });
   }
 }
 </script>

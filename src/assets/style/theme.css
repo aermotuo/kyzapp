@@ -1,5 +1,8 @@
-body{
+html,body{
+  width: 100%;
+  height: 100%;
   overflow-x:hidden;
+  background-color:#f9f9f9;
 }
 .head-text{
   padding: 0 15px;
@@ -73,4 +76,36 @@ body{
   font-weight: 700;
   font-size:15px;
   color:#666;
+}
+
+/*表单样式修改*/
+.p-form__bd{
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+}
+.p-form__group {
+  padding: 8px 15px;
+  border-bottom: 1px solid #e4e4e4;
+}
+.p-form__group:last-child {
+  border-bottom: 0;
+}
+.p-form__label {
+  display: inline-block;
+  margin-right: 10px;
+  width: 4em;
+  color: #999999;
+  text-align: justify;
+  text-align-last: justify;
+}
+.p-form__group .ivu-input{
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+}
+.p-form__group .ivu-input:focus, 
+.p-form__group .ivu-input:hover {
+  border: 0;
+  box-shadow: none;
 }

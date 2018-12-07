@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import Vuex from 'vuex'
+import store from './store'
 import iview from 'iview'
 import 'iview/dist/styles/iview.css';
 import echarts from 'echarts';
@@ -12,7 +12,6 @@ Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$axios = axios;
 
-Vue.use(Vuex)
 Vue.use(iview);
 Vue.use(VueAMap);
 
@@ -25,5 +24,6 @@ VueAMap.initAMapApiLoader({
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

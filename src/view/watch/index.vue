@@ -50,6 +50,12 @@ export default {
       this.visibility = true;
       // this.watchName = data.name;
     }
+  },
+  created(){
+    this.$store.commit('updatePage',{
+      name: '视频查看',
+      index:3
+    });
   }
 }
 </script>

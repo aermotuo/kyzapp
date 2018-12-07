@@ -2,10 +2,10 @@
   <div>
     <div class="flex flex--align--center i-top">
       <div class="flex__item i-top__return" @click="goBack">
-        <span class="iconfont icon-fanhui"></span> 
+        <Icon type="ios-arrow-back i-top__icon" />
         返回
       </div>
-      <div class="flex__col--6 i-top__title" v-text="title"></div>
+      <div class="flex__col--6 i-top__title" v-text="title" :style="{fontSize: size+'px'}"></div>
       <div class="flex__item i-top__right">
         <slot></slot>
       </div>
@@ -20,6 +20,10 @@ export default {
     title:{
       type: String,
       default: ''
+    },
+    size:{
+      type:Number,
+      default: 18
     }
   },
   methods: {
@@ -45,7 +49,10 @@ export default {
 .i-top__return {
   color: #0079FE;
   line-height: 1;
-  font-size: 16px;
+  font-size: 14px;
+}
+.i-top__icon{
+  vertical-align: top;
 }
 .i-top__title{
   text-align: center;

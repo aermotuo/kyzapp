@@ -1,5 +1,5 @@
 <template>
-  <div class="p-add" id="warningAdd">
+  <div class="p-add">
     <inside-top title="新增告警"></inside-top>
     <div class="p-add__bd">
       <form class="p-add__form">
@@ -94,7 +94,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .p-add {
   background-color: #f9f9f9;
 }
@@ -105,37 +105,10 @@ export default {
   border: 1px solid #e4e4e4;
   background-color: #fff;
 }
-.p-form__group {
-  padding: 5px 15px;
-  border-bottom: 1px solid #e4e4e4;
-}
-.p-form__group:last-child {
-  border-bottom: 0;
-}
-.p-form__label {
-  display: inline-block;
-  margin-right: 10px;
-  width: 4em;
-  color: #999999;
-  text-align: justify;
-  text-align-last: justify;
-}
-#warningAdd .ivu-input {
-  border: 0;
-  outline: none;
-  font-size: 14px;
-  color: #333;
-}
-#warningAdd .ivu-input:focus,
-#warningAdd .ivu-input:hover {
-  border: 0;
-  box-shadow: none;
-}
-
 .p-form__ft{
   margin-top:10px;
 }
-#warningAdd .p-form__textarea{
+.p-form__textarea{
   width: 100%;
   padding:10px;
   background-color:#fff;

@@ -9,7 +9,7 @@
           21/14°C
         </span>
       </Col>
-      <Col span="8"  class="c-head__pagename" v-text="pagename"></Col>
+      <Col span="8"  class="c-head__pagename" v-text="pageName"></Col>
       <Col span="8"  class="c-head__btnbox">
         <span class="iconfont icon-lingdang c-head__icon" @click="jump('/warning')"></span>
         <span class="iconfont icon-user c-head__icon" @click="jump('/user')"></span>
@@ -23,10 +23,9 @@
 <script>
 export default {
   name: 'PTop',
-  props:{
-    pagename: {
-      type: String,
-      default: '首页'
+  computed:{
+    pageName(){
+      return this.$store.state.page.name
     }
   },
   methods:{

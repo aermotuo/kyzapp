@@ -1,6 +1,6 @@
 <template>
   <div class="p-user">
-    <inside-top title="我的账号"></inside-top>
+    <inside-top title="我的账号" :size="14"></inside-top>
     <div class="flex flex--align--center p-user__hd">
       <div class="p-user__image">
         <img src="@/assets/images/userimage.png">
@@ -10,7 +10,7 @@
         <div class="p-user__name">username</div>
       </div>
       <div class="p-user__set">
-        <Icon type="md-settings" color="#999" size="24" />
+        <Icon type="md-settings" color="#999" size="24" @click="jump('/user/setup')"/>
       </div>
     </div>
     <div class="p-user__columns">
@@ -22,7 +22,7 @@
           <Icon type="ios-arrow-forward"  size="16" color="#999" />
         </div>
       </div>
-      <div class="flex flex--align--center p-columns__item">
+      <div class="flex flex--align--center p-columns__item" @click="jump('/user/bindphone')">
         <div class="flex__item">
           修改手机
         </div>
@@ -30,7 +30,7 @@
           <Icon type="ios-arrow-forward"  size="16" color="#999" />
         </div>
       </div>
-      <div class="flex flex--align--center p-columns__item">
+      <div class="flex flex--align--center p-columns__item" @click="jump('/user/about')">
         <div class="flex__item">
           关于我们
         </div>
@@ -63,6 +63,12 @@ export default {
         path: link
       })
     }
+  },
+  created(){
+    this.$store.commit('updatePage',{
+      name: '用户中心',
+      index: -1
+    });
   }
 }
 </script>

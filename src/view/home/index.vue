@@ -27,7 +27,10 @@ export default {
     }
   },
   created(){
-    
+    this.$store.commit('updatePage',{
+      name: '首页',
+      index: 0
+    });
   }
 }
 </script>

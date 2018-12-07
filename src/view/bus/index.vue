@@ -76,6 +76,12 @@ export default {
       // this.busName = data.name;
       this.visibility = true;
     }
+  },
+  created(){
+    this.$store.commit('updatePage',{
+      name: '客运站',
+      index:2
+    });
   }
 }
 </script>

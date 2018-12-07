@@ -121,5 +121,26 @@ export default new Router({
     meta:{
       topHide: true
     }
+  },{
+    path: '/user/bindphone',
+    name: 'UserBindPhone',
+    component: ()=>import('@/view/user/bindphone'),
+    meta:{
+      topHide: true
+    }
+  },{
+    path: '/user/about',
+    name: 'UserAbout',
+    component: ()=>import('@/view/user/about'),
+    meta:{
+      topHide: true
+    }
+  },{
+    path: '/user/setup',
+    name: 'UserSetup',
+    component: ()=>import('@/view/user/setup'),
+    meta:{
+      topHide: true
+    }
   }]
 })

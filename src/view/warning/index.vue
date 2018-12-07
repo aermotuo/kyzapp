@@ -1,8 +1,8 @@
 <template>
   <div class="p-warning">
     <inside-top title="告警信息">
-      <span class="iconfont icon-jiahao p-warning__icon" @click="jumpAdd"></span>
-      <span class="iconfont icon-user p-warning__icon"></span>
+      <span class="iconfont icon-jiahao p-warning__icon" @click="jump('/warning/add')"></span>
+      <span class="iconfont icon-user p-warning__icon" @click="jump('/user')"></span>
     </inside-top>
     <div class="flex p-warning__tabs">
       <div class="flex__item p-warning__tab" :class="type == 1 ? 'p-warning__tab--active' : '' " @click="toggle(1)">全部告警信息</div>
@@ -46,13 +46,17 @@ export default {
     toggle(type){
       this.type = type;
     },
-    jumpAdd(){
+    jump(link){
       this.$router.push({
-        path: '/warning/add'
+        path: link
       });
     }
   },
-  mounted(){
+  created(){
+    this.$store.commit('updatePage',{
+      name: '告警信息',
+      index:-1
+    });
   }
 }
 </script>

@@ -23,10 +23,10 @@ let option = {
     ]
   },
   grid: {
-    left: "2%",
-    right: "0%",
+    left: "5%",
+    right: "10%",
     top: "15%",
-    bottom: "5%"
+    bottom: "15%"
   },
   xAxis: {
     type: "value",

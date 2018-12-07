@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex flex--align--center c-footer">
-      <div class="c-footer__tab" :class="active == i ? 'c-footer__tab--active' : '' "  v-for="(item, i) in tabs" :key="i" @click="toggelLink(item.link, i)">
+      <div class="c-footer__tab" :class="pageIndex == i ? 'c-footer__tab--active' : '' "  v-for="(item, i) in tabs" :key="i" @click="toggelLink(item.link)">
         <div class="iconfont c-tab__icon" :class="item.iconClass"></div>
         {{item.name}}
       </div>
@@ -15,7 +15,6 @@ export default {
   name: 'PFooter',
   data(){
     return {
-      active: 0,
       tabs:[
         {
           iconClass: 'icon-home',
@@ -41,9 +40,13 @@ export default {
       ]
     }
   },
+  computed:{
+    pageIndex(){
+      return this.$store.state.page.index;
+    }
+  },
   methods: {
-    toggelLink(link, i){
-      this.active = i ;
+    toggelLink(link){
       this.$router.push({
         path: link
       });

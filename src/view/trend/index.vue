@@ -39,6 +39,12 @@ export default {
         }
       ]
     }
+  },
+  created(){
+    this.$store.commit('updatePage',{
+      name: '态势展示',
+      index:1
+    });
   }
 }
 </script>
